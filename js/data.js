@@ -6,7 +6,7 @@ export const products = [
     oldPrice: 1990,
     discount: 25,
     category: "candles",
-    image: "../images/candle-1.webp",
+    image: "./images/candle-1.webp",
     inStock: true
   },
   {
@@ -16,7 +16,7 @@ export const products = [
     oldPrice: 1590,
     discount: 20,
     category: "candles",
-    image: "../images/candle-2.webp",
+    image: "./images/candle-2.webp",
     inStock: true
   },
   {
@@ -26,7 +26,7 @@ export const products = [
     oldPrice: 990,
     discount: 20,
     category: "candles",
-    image: "../images/candle-3.webp",
+    image: "./images/candle-3.webp",
     inStock: true
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     oldPrice: 2190,
     discount: 23,
     category: "candles",
-    image: "../images/candle-4.webp",
+    image: "./images/candle-4.webp",
     inStock: true
   },
 
@@ -47,7 +47,7 @@ export const products = [
     oldPrice: 2990,
     discount: 17,
     category: "plants",
-    image: "../images/plant-1.webp",
+    image: "./images/plant-1.webp",
     inStock: true
   },
   {
@@ -57,7 +57,7 @@ export const products = [
     oldPrice: 3990,
     discount: 18,
     category: "plants",
-    image: "../images/plant-2.webp",
+    image: "./images/plant-2.webp",
     inStock: true
   },
   {
@@ -67,7 +67,7 @@ export const products = [
     oldPrice: 790,
     discount: 25,
     category: "plants",
-    image: "../images/plant-3.webp",
+    image: "./images/plant-3.webp",
     inStock: true
   },
   {
@@ -77,7 +77,7 @@ export const products = [
     oldPrice: 3490,
     discount: 17,
     category: "plants",
-    image: "../images/plant-4.webp",
+    image: "./images/plant-4.webp",
     inStock: false
   },
 
@@ -88,7 +88,7 @@ export const products = [
     oldPrice: 2490,
     discount: 20,
     category: "decor",
-    image: "../images/decor-1.webp",
+    image: "./images/decor-1.webp",
     inStock: true
   },
   {
@@ -98,7 +98,7 @@ export const products = [
     oldPrice: 1490,
     discount: 20,
     category: "decor",
-    image: "../images/decor-2.webp",
+    image: "./images/decor-2.webp",
     inStock: true
   },
   {
@@ -108,7 +108,7 @@ export const products = [
     oldPrice: 1790,
     discount: 22,
     category: "decor",
-    image: "../images/decor-3.webp",
+    image: "./images/decor-3.webp",
     inStock: true
   },
   {
@@ -118,7 +118,7 @@ export const products = [
     oldPrice: 1990,
     discount: 20,
     category: "decor",
-    image: "../images/decor-4.webp",
+    image: "./images/decor-4.webp",
     inStock: true
   },
 
@@ -129,7 +129,7 @@ export const products = [
     oldPrice: 2290,
     discount: 17,
     category: "aroma",
-    image: "../images/aroma-1.webp",
+    image: "./images/aroma-1.webp",
     inStock: true
   },
   {
@@ -139,7 +139,7 @@ export const products = [
     oldPrice: 2190,
     discount: 18,
     category: "aroma",
-    image: "../images/aroma-2.webp",
+    image: "./images/aroma-2.webp",
     inStock: true
   },
   {
@@ -149,7 +149,7 @@ export const products = [
     oldPrice: 1290,
     discount: 23,
     category: "aroma",
-    image: "../images/aroma-3.webp",
+    image: "./images/aroma-3.webp",
     inStock: true
   },
   {
@@ -159,7 +159,7 @@ export const products = [
     oldPrice: 2790,
     discount: 21,
     category: "aroma",
-    image: "../images/aroma-4.webp",
+    image: "./images/aroma-4.webp",
     inStock: true
   },
 
@@ -170,7 +170,7 @@ export const products = [
     oldPrice: 4290,
     discount: 19,
     category: "textile",
-    image: "../images/textile-1.webp",
+    image: "./images/textile-1.webp",
     inStock: true
   },
   {
@@ -180,7 +180,7 @@ export const products = [
     oldPrice: 1690,
     discount: 24,
     category: "textile",
-    image: "../images/textile-2.webp",
+    image: "./images/textile-2.webp",
     inStock: true
   },
   {
@@ -190,7 +190,7 @@ export const products = [
     oldPrice: 4990,
     discount: 20,
     category: "textile",
-    image: "../images/textile-3.webp",
+    image: "./images/textile-3.webp",
     inStock: true
   },
   {
@@ -200,7 +200,7 @@ export const products = [
     oldPrice: 3490,
     discount: 20,
     category: "textile",
-    image: "../images/textile-4.webp",
+    image: "./images/textile-4.webp",
     inStock: true
   },
 
@@ -211,7 +211,7 @@ export const products = [
     oldPrice: 3190,
     discount: 19,
     category: "lighting",
-    image: "../images/light-1.webp",
+    image: "./images/light-1.webp",
     inStock: true
   },
   {
@@ -221,7 +221,7 @@ export const products = [
     oldPrice: 1290,
     discount: 23,
     category: "lighting",
-    image: "../images/light-2.webp",
+    image: "./images/light-2.webp",
     inStock: true
   },
   {
@@ -231,7 +231,7 @@ export const products = [
     oldPrice: 5490,
     discount: 16,
     category: "lighting",
-    image: "../images/light-3.webp",
+    image: "./images/light-3.webp",
     inStock: true
   },
   {
@@ -241,7 +241,7 @@ export const products = [
     oldPrice: 1890,
     discount: 21,
     category: "lighting",
-    image: "../images/light-4.webp",
+    image: "./images/light-4.webp",
     inStock: true
   }
 ];
