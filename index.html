@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanStore</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./images/favicon.webp" type="image/x-icon">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <div class="logo">UrbanStore</div>
+
+      <nav class="nav">
+        <button class="nav__link active" data-category="all">Все</button>
+        <button class="nav__link" data-category="candles">Свечи</button>
+        <button class="nav__link" data-category="plants">Растения</button>
+        <button class="nav__link" data-category="decor">Декор</button>
+      </nav>
+
+      <div class="header__actions">
+        <a href="wishlist.html" class="icon">
+          ❤️ <span class="badge" id="wishlist-count">0</span>
+        </a>
+
+        <a href="cart.html" class="icon">
+          🛒 <span class="badge" id="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <div class="controls">
+
+      <input type="text" id="search-input" placeholder="Поиск товаров..." class="search" />
+
+      <select id="sort-select" class="sort">
+        <option value="default">По умолчанию</option>
+        <option value="price-asc">Цена ↑</option>
+        <option value="price-desc">Цена ↓</option>
+        <option value="name">Название</option>
+      </select>
+
+    </div>
+
+    <!-- GRID -->
+    <section class="products" id="products-container">
+      <!-- JS будет рендерить карточки -->
+    </section>
+
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    Товар добавлен в корзину
+  </div>
+
+  <div class="drawer" id="drawer">
+    <div class="drawer__content">
+      <h3>Корзина</h3>
+      <div id="drawer-items"></div>
+      <div class="drawer__footer">
+        <span id="drawer-total"></span>
+        <a href="cart.html" class="btn">Перейти</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/ui.js"></script>
+</body>
+
+</html>

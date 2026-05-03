@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Корзина</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">UrbanStore</a>
+
+      <div class="header__actions">
+        <a href="wishlist.html">❤️</a>
+        <a href="cart.html">🛒</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h1 class="page-title">Корзина</h1>
+
+    <div id="cart-container"></div>
+
+    <div class="cart-summary">
+      <div>Итого: <span id="total-price">0 ₽</span></div>
+      <button class="btn">Оформить заказ</button>
+    </div>
+
+  </main>
+
+  <script type="module" src="js/cart.js"></script>
+</body>
+
+</html>
