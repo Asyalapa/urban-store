@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход — UrbanStore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-text">UrbanStore</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="auth-form">
+        <div class="auth-form__tabs">
+          <button class="auth-form__tab active" data-tab="login" data-i18n="auth.login_tab">Вход</button>
+          <button class="auth-form__tab" data-tab="register" data-i18n="auth.register_tab">Регистрация</button>
+        </div>
+
+        <!-- Форма входа -->
+        <form id="login-form" class="auth-form__panel active">
+          <h1 class="auth-form__title" data-i18n="auth.login_title">Вход в аккаунт</h1>
+
+          <div class="auth-form__field">
+            <label data-i18n="auth.email">Email</label>
+            <input type="email" id="login-email" placeholder="user@example.com" required>
+          </div>
+
+          <div class="auth-form__field">
+            <label data-i18n="auth.password">Пароль</label>
+            <input type="password" id="login-password" placeholder="••••••" required>
+          </div>
+
+          <button type="submit" class="button button--primary auth-form__submit" data-i18n="auth.login_button">Войти</button>
+
+          <div class="auth-form__demo">
+            <p data-i18n="auth.demo_access">🎭 Демо-доступ:</p>
+            <p>Email: <code>user@example.com</code> / Пароль: <code>123456</code></p>
+            <p>Email: <code>admin@urbanstore.com</code> / Пароль: <code>admin123</code></p>
+          </div>
+        </form>
+
+        <!-- Форма регистрации -->
+        <form id="register-form" class="auth-form__panel">
+          <h1 class="auth-form__title" data-i18n="auth.register_title">Регистрация</h1>
+
+          <div class="auth-form__field">
+            <label data-i18n="auth.name">Имя</label>
+            <input type="text" id="register-name" placeholder="Анастасия" required>
+          </div>
+
+          <div class="auth-form__field">
+            <label data-i18n="auth.email">Email</label>
+            <input type="email" id="register-email" placeholder="user@example.com" required>
+          </div>
+
+          <div class="auth-form__field">
+            <label data-i18n="auth.password">Пароль</label>
+            <input type="password" id="register-password" placeholder="••••••" required>
+          </div>
+
+          <button type="submit" class="button button--primary auth-form__submit" data-i18n="auth.register_button">Зарегистрироваться</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__container">
+      <p class="footer__text" data-i18n="footer.demo">📦 Демонстрационный проект интернет-магазина</p>
+      <p class="footer__credit"><span data-i18n="footer.developer">Разработчик: Анастасия М. |</span> <a href="https://t.me/asyalapa" class="footer__link">@asyalapa</a></p>
+    </div>
+  </footer>
+
+  <div class="notification" id="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

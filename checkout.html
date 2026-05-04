@@ -4,25 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Корзина — UrbanStore</title>
+  <title>Оформление заказа — UrbanStore</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="/images/icons/favicon.webp" type="image/svg+xml">
 </head>
 
 <body>
-  <header class="header" role="banner">
+  <header class="header">
     <div class="container header__container">
       <a href="index.html" class="header__logo">
         <span class="header__logo-text">UrbanStore</span>
       </a>
-
       <div class="header__actions">
         <a href="wishlist.html" class="header__action-link" aria-label="Избранное">
           <span class="header__action-icon" aria-hidden="true">❤️</span>
           <span class="header__action-badge" id="wishlist-count">0</span>
         </a>
-        <a href="cart.html" class="header__action-link" aria-label="Корзина" aria-current="page">
+        <a href="cart.html" class="header__action-link" aria-label="Корзина">
           <span class="header__action-icon" aria-hidden="true">🛒</span>
           <span class="header__action-badge" id="cart-count">0</span>
         </a>
@@ -30,21 +27,18 @@
     </div>
   </header>
 
-  <main class="main" role="main">
+  <main class="main">
     <div class="container">
-      <h1 class="page-title page-title--cart" data-i18n="cart.title">Корзина</h1>
+      <h1 class="page-title" data-i18n="checkout.title">Оформление заказа</h1>
 
-      <div class="cart-page" id="cart-container">
-        <!-- Динамическое содержимое -->
+      <div class="checkout-layout">
+        <div class="checkout-layout__form" id="checkout-container"></div>
+        <div class="checkout-layout__summary" id="order-summary"></div>
       </div>
 
-      <div class="cart-summary" id="cart-summary">
-        <div class="cart-summary__row">
-          <span class="cart-summary__label" data-i18n="cart.total">Итого:</span>
-          <span class="cart-summary__price" id="total-price">0 ₽</span>
-        </div>
-        <button class="button button--primary button--checkout" id="checkout-button">
-          <span data-i18n="cart.checkout">Оформить заказ</span>
+      <div class="checkout-actions">
+        <button type="submit" form="checkout-form" class="button button--primary button--large">
+          <span data-i18n="checkout.confirm">Подтвердить заказ</span>
         </button>
       </div>
     </div>
@@ -53,12 +47,11 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer__container">
       <p class="footer__text" data-i18n="footer.demo">📦 Демонстрационный проект интернет-магазина</p>
-      <p class="footer__credit"><span data-i18n="footer.developer">Разработчик: Анастасия М. |</span> <a href="https://t.me/asyalapa"
-          class="footer__link">@asyalapa</a></p>
+      <p class="footer__credit"><span data-i18n="footer.developer">Разработчик: Анастасия М. |</span> <a href="https://t.me/asyalapa" class="footer__link">@asyalapa</a></p>
     </div>
   </footer>
 
-  <div class="notification" id="toast" role="status" aria-live="polite" hidden></div>
+  <div class="notification" id="toast"></div>
 
   <script type="module" src="js/main.js"></script>
 </body>

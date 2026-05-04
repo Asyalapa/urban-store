@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Заказ оформлен — UrbanStore</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-text">UrbanStore</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div id="order-success-container"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__text" data-i18n="footer.demo">Демонстрационный проект интернет-магазина</p>
+      <p class="footer__credit">
+        <span data-i18n="footer.developer">Разработчик: Анастасия М.</span> |
+        <a href="https://t.me/asyalapa" class="footer__link">@asyalapa</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="notification" id="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

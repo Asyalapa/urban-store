@@ -1,0 +1,242 @@
+[
+  {
+    "id": "prod_1",
+    "name": "Керамическая свеча «Лаванда»",
+    "price": 1490,
+    "oldPrice": 1990,
+    "discount": 25,
+    "category": "candles",
+    "image": "/images/products/candle-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_2",
+    "name": "Свеча «Ваниль и дерево»",
+    "price": 1290,
+    "oldPrice": 1590,
+    "discount": 20,
+    "category": "candles",
+    "image": "/images/products/candle-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_3",
+    "name": "Мини-свеча «Цитрус»",
+    "price": 790,
+    "oldPrice": 990,
+    "discount": 20,
+    "category": "candles",
+    "image": "/images/products/candle-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_4",
+    "name": "Свеча в стекле «Роза»",
+    "price": 1690,
+    "oldPrice": 2190,
+    "discount": 23,
+    "category": "candles",
+    "image": "/images/products/candle-4.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_5",
+    "name": "Монстера в кашпо",
+    "price": 2490,
+    "oldPrice": 2990,
+    "discount": 17,
+    "category": "plants",
+    "image": "/images/products/plant-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_6",
+    "name": "Фикус Лирата",
+    "price": 3290,
+    "oldPrice": 3990,
+    "discount": 18,
+    "category": "plants",
+    "image": "/images/products/plant-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_7",
+    "name": "Суккулент мини",
+    "price": 590,
+    "oldPrice": 790,
+    "discount": 25,
+    "category": "plants",
+    "image": "/images/products/plant-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_8",
+    "name": "Пальма Хамедорея",
+    "price": 2890,
+    "oldPrice": 3490,
+    "discount": 17,
+    "category": "plants",
+    "image": "/images/products/plant-4.webp",
+    "inStock": false
+  },
+  {
+    "id": "prod_9",
+    "name": "Ваза керамическая «Nord»",
+    "price": 1990,
+    "oldPrice": 2490,
+    "discount": 20,
+    "category": "decor",
+    "image": "/images/products/decor-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_10",
+    "name": "Декоративная тарелка",
+    "price": 1190,
+    "oldPrice": 1490,
+    "discount": 20,
+    "category": "decor",
+    "image": "/images/products/decor-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_11",
+    "name": "Поднос деревянный",
+    "price": 1390,
+    "oldPrice": 1790,
+    "discount": 22,
+    "category": "decor",
+    "image": "/images/products/decor-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_12",
+    "name": "Стеклянная ваза",
+    "price": 1590,
+    "oldPrice": 1990,
+    "discount": 20,
+    "category": "decor",
+    "image": "/images/products/decor-4.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_13",
+    "name": "Аромадиффузор «Мускус»",
+    "price": 1890,
+    "oldPrice": 2290,
+    "discount": 17,
+    "category": "aroma",
+    "image": "/images/products/aroma-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_14",
+    "name": "Диффузор «Морской бриз»",
+    "price": 1790,
+    "oldPrice": 2190,
+    "discount": 18,
+    "category": "aroma",
+    "image": "/images/products/aroma-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_15",
+    "name": "Аромапалочки «Сандал»",
+    "price": 990,
+    "oldPrice": 1290,
+    "discount": 23,
+    "category": "aroma",
+    "image": "/images/products/aroma-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_16",
+    "name": "Набор эфирных масел",
+    "price": 2190,
+    "oldPrice": 2790,
+    "discount": 21,
+    "category": "aroma",
+    "image": "/images/products/aroma-4.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_17",
+    "name": "Плед «Cozy Home»",
+    "price": 3490,
+    "oldPrice": 4290,
+    "discount": 19,
+    "category": "textile",
+    "image": "/images/products/textile-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_18",
+    "name": "Подушка декоративная",
+    "price": 1290,
+    "oldPrice": 1690,
+    "discount": 24,
+    "category": "textile",
+    "image": "/images/products/textile-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_19",
+    "name": "Покрывало «Minimal»",
+    "price": 3990,
+    "oldPrice": 4990,
+    "discount": 20,
+    "category": "textile",
+    "image": "/images/products/textile-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_20",
+    "name": "Коврик интерьерный",
+    "price": 2790,
+    "oldPrice": 3490,
+    "discount": 20,
+    "category": "textile",
+    "image": "/images/products/textile-4.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_21",
+    "name": "Настольная лампа",
+    "price": 2590,
+    "oldPrice": 3190,
+    "discount": 19,
+    "category": "lighting",
+    "image": "/images/products/light-1.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_22",
+    "name": "Гирлянда тёплый свет",
+    "price": 990,
+    "oldPrice": 1290,
+    "discount": 23,
+    "category": "lighting",
+    "image": "/images/products/light-2.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_23",
+    "name": "Подвесной светильник",
+    "price": 4590,
+    "oldPrice": 5490,
+    "discount": 16,
+    "category": "lighting",
+    "image": "/images/products/light-3.webp",
+    "inStock": true
+  },
+  {
+    "id": "prod_24",
+    "name": "Ночник «Soft Glow»",
+    "price": 1490,
+    "oldPrice": 1890,
+    "discount": 21,
+    "category": "lighting",
+    "image": "/images/products/light-4.webp",
+    "inStock": true
+  }
+]

@@ -4,81 +4,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UrbanStore</title>
+  <meta name="description" content="UrbanStore - магазин свечей, растений и декора для дома. Создай уют с нами.">
+  <meta name="author" content="Anastasia M. (tg: @asyalapa)">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="UrbanStore - Магазин для дома">
+  <meta property="og:description" content="Свечи, растения и декор для уютного дома">
+  <meta property="og:type" content="website">
+
+  <title>UrbanStore — Магазин свечей, растений и декора</title>
 
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="./images/favicon.webp" type="image/x-icon">
+  <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <link rel="icon" href="/images/icons/favicon.webp" type="image/svg+xml">
 </head>
 
 <body>
-
   <!-- HEADER -->
-  <header class="header">
-    <div class="container header__inner">
-      <div class="logo">UrbanStore</div>
+  <header class="header" role="banner">
+    <div class="container header__container">
+      <a href="/" class="header__logo" aria-label="UrbanStore - главная">
+        <span class="header__logo-text">UrbanStore</span>
+      </a>
 
-      <nav class="nav">
-        <button class="nav__link active" data-category="all">Все</button>
-        <button class="nav__link" data-category="candles">Свечи</button>
-        <button class="nav__link" data-category="plants">Растения</button>
-        <button class="nav__link" data-category="decor">Декор</button>
+      <nav class="header__nav nav" role="navigation" aria-label="Категории товаров">
+        <button class="nav__link nav__link--active" data-category="all" aria-pressed="true" data-i18n="nav.all">
+          Все
+        </button>
+        <button class="nav__link" data-category="candles" aria-pressed="false" data-i18n="nav.candles">
+          Свечи
+        </button>
+        <button class="nav__link" data-category="plants" aria-pressed="false" data-i18n="nav.plants">
+          Растения
+        </button>
+        <button class="nav__link" data-category="decor" aria-pressed="false" data-i18n="nav.decor">
+          Декор
+        </button>
+        <button class="nav__link" data-category="aroma" aria-pressed="false" data-i18n="nav.aroma">
+          Ароматы
+        </button>
+        <button class="nav__link" data-category="textile" aria-pressed="false" data-i18n="nav.textile">
+          Текстиль
+        </button>
+        <button class="nav__link" data-category="lighting" aria-pressed="false" data-i18n="nav.lighting">
+          Освещение
+        </button>
       </nav>
 
       <div class="header__actions">
-        <a href="wishlist.html" class="icon">
-          ❤️ <span class="badge" id="wishlist-count">0</span>
+        <a href="wishlist.html" class="header__action-link" aria-label="Избранное">
+          <span class="header__action-icon" aria-hidden="true">❤️</span>
+          <span class="header__action-badge" id="wishlist-count" aria-label="Количество товаров в избранном">0</span>
         </a>
 
-        <a href="cart.html" class="icon">
-          🛒 <span class="badge" id="cart-count">0</span>
-        </a>
+        <button class="header__action-button" id="cart-drawer-open" aria-label="Открыть корзину">
+          <span class="header__action-icon" aria-hidden="true">🛒</span>
+          <span class="header__action-badge" id="cart-count" aria-label="Количество товаров в корзине">0</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="container">
+  <!-- MAIN CONTENT -->
+  <main class="main" role="main">
+    <div class="container">
 
-    <div class="controls">
+      <!-- CATALOG CONTROLS -->
+      <div class="catalog-controls">
+        <label class="visually-hidden" for="search-input">Поиск товаров</label>
+        <input type="text" id="search-input" class="catalog-controls__search" placeholder="Поиск товаров..."
+          aria-label="Поиск по названию" data-i18n-placeholder="search.placeholder" data-i18n-aria="search.aria_label">
 
-      <input type="text" id="search-input" placeholder="Поиск товаров..." class="search" />
+        <label class="visually-hidden" for="sort-select">Сортировка</label>
+        <select id="sort-select" class="catalog-controls__sort" aria-label="Способ сортировки">
+          <option value="default" data-i18n="sort.default">По умолчанию</option>
+          <option value="price-asc" data-i18n="sort.price_asc">Цена ↑</option>
+          <option value="price-desc" data-i18n="sort.price_desc">Цена ↓</option>
+          <option value="name" data-i18n="sort.name">Название</option>
+        </select>
+      </div>
 
-      <select id="sort-select" class="sort">
-        <option value="default">По умолчанию</option>
-        <option value="price-asc">Цена ↑</option>
-        <option value="price-desc">Цена ↓</option>
-        <option value="name">Название</option>
-      </select>
+      <!-- PRODUCTS GRID -->
+      <section class="catalog" aria-label="Каталог товаров">
+        <div class="catalog__grid" id="products-container">
+          <!-- JS будет рендерить карточки -->
+        </div>
+      </section>
 
     </div>
-
-    <!-- GRID -->
-    <section class="products" id="products-container">
-      <!-- JS будет рендерить карточки -->
-    </section>
-
   </main>
 
-  <!-- TOAST -->
-  <div class="toast" id="toast">
-    Товар добавлен в корзину
+  <!-- NOTIFICATION TOAST -->
+  <div class="notification" id="toast" role="status" aria-live="polite" hidden>
+    <span class="notification__message">Товар добавлен в корзину</span>
   </div>
 
-  <div class="drawer" id="drawer">
-    <div class="drawer__content">
-      <h3>Корзина</h3>
-      <div id="drawer-items"></div>
-      <div class="drawer__footer">
-        <span id="drawer-total"></span>
-        <a href="cart.html" class="btn">Перейти</a>
+  <!-- CART DRAWER -->
+  <aside class="cart-drawer" id="drawer" aria-hidden="true" aria-label="Корзина">
+    <div class="cart-drawer__overlay"></div>
+    <div class="cart-drawer__content">
+      <div class="cart-drawer__header">
+        <h3 class="cart-drawer__title" data-i18n="cart.title">Корзина</h3>
+        <button class="cart-drawer__close" id="drawer-close" aria-label="Закрыть корзину">✕</button>
+      </div>
+      <div class="cart-drawer__items" id="drawer-items">
+        <!-- Динамические товары -->
+      </div>
+      <div class="cart-drawer__footer">
+        <div class="cart-drawer__total">
+          <span data-i18n="cart.total">Итого:</span>
+          <span id="drawer-total">0 ₽</span>
+        </div>
+        <a href="cart.html" class="button button--primary button--full" data-i18n="cart.go_to_cart">Перейти в корзину</a>
       </div>
     </div>
-  </div>
+  </aside>
 
-  <script type="module" src="js/ui.js"></script>
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__container">
+      <p class="footer__text" data-i18n="footer.demo">
+        🧪 Демонстрационный проект интернет-магазина
+      </p>
+      <p class="footer__credit">
+        <span data-i18n="footer.developer">Разработчик: Анастасия М. | Telegram:</span> <a href="https://t.me/asyalapa" class="footer__link">@asyalapa</a>
+      </p>
+      <p class="footer__copyright" data-i18n="footer.copyright">
+        © 2026 UrbanStore — учебный проект, все товары вымышлены
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

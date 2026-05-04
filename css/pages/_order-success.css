@@ -1,0 +1,50 @@
+/* Order Success Page Styles */
+
+.order-success {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.order-success__icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.order-success__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.order-success__message {
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.order-success__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .order-success {
+    padding: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+
+  .order-success__icon {
+    font-size: 48px;
+  }
+
+  .order-success__title {
+    font-size: var(--font-size-xl);
+  }
+}

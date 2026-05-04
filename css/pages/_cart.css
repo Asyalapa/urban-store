@@ -1,0 +1,112 @@
+/* Cart Page Styles */
+
+/* Cart Page Layout */
+.cart-page {
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Cart Summary (специфично для страницы корзины) */
+.cart-summary {
+  background: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-top: var(--spacing-xl);
+}
+
+.cart-summary__promo {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-summary__row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+}
+
+.cart-summary__row--discount {
+  color: var(--color-success);
+}
+
+.cart-summary__total {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-lg) 0;
+  border-top: 2px solid var(--color-border);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+}
+
+/* Promo Code Block */
+.promo-code {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.promo-code__input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.promo-code__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.promo-code__active {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.promo-code__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  color: var(--color-error);
+  padding: 0 var(--spacing-sm);
+}
+
+/* Cart Actions */
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-summary {
+    padding: var(--spacing-lg);
+  }
+
+  .cart-summary__total {
+    font-size: var(--font-size-md);
+  }
+
+  .promo-code {
+    flex-direction: column;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+  }
+
+  .cart-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+}

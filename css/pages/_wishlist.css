@@ -1,0 +1,9 @@
+/* Wishlist Page */
+.wishlist-page__actions {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+}
+
+.wishlist-page__actions .button {
+  min-width: 250px;
+}

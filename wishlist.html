@@ -3,31 +3,61 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Избранное</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Избранное — UrbanStore</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="/images/icons/favicon.webp" type="image/svg+xml">
 </head>
 
 <body>
+  <header class="header" role="banner">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-text">UrbanStore</span>
+      </a>
 
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="logo">UrbanStore</a>
+      <div class="header__actions">
+        <a href="wishlist.html" class="header__action-link" aria-current="page">
+          <span class="header__action-icon" aria-hidden="true">❤️</span>
+          <span class="header__action-badge" id="wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="header__action-link">
+          <span class="header__action-icon" aria-hidden="true">🛒</span>
+          <span class="header__action-badge" id="cart-count">0</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container">
+  <main class="main" role="main">
+    <div class="container">
+      <h1 class="page-title page-title--wishlist" data-i18n="wishlist.title">Избранное</h1>
 
-    <h1 class="page-title">Избранное</h1>
+      <div class="wishlist-page">
+        <div class="wishlist-page__grid catalog__grid" id="wishlist-container">
+          <!-- Динамические товары -->
+        </div>
 
-    <div id="wishlist-container" class="products"></div>
-
-    <button class="btn btn--secondary" id="add-all-to-cart">
-      Добавить всё в корзину
-    </button>
-
+        <div class="wishlist-page__actions">
+          <button class="button button--secondary" id="add-all-to-cart" data-i18n="wishlist.add_all_to_cart">
+            Добавить всё в корзину
+          </button>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <script type="module" src="js/wishlist.js"></script>
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__container">
+      <p class="footer__credit">Разработчик: Анастасия М. | <a href="https://t.me/asyalapa"
+          class="footer__link">@asyalapa</a></p>
+    </div>
+  </footer>
+
+  <div class="notification" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
