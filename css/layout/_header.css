@@ -107,6 +107,41 @@
   text-align: center;
 }
 
+/* User info and login button */
+.header__user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header__user-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.header__logout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-xs);
+  transition: transform var(--transition-fast);
+}
+
+.header__logout-btn:hover {
+  transform: scale(1.1);
+}
+
+.header__login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
 /* Responsive Header */
 @media (max-width: 768px) {
   .header {
@@ -126,5 +161,14 @@
 
   .nav {
     justify-content: center;
+  }
+
+  .header__user-info {
+    gap: var(--spacing-sm);
+  }
+
+  .header__login-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
   }
 }
