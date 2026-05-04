@@ -5,6 +5,7 @@
 
 import { cart } from '../modules/cart.js';
 import { wishlist } from '../modules/wishlist.js';
+import { inventory } from '../modules/inventory.js';
 import { ui } from '../modules/ui.js';
 import { formatPrice, escapeHtml } from '../utils/helpers.js';
 import { initCommon } from '../common.js';
@@ -74,34 +75,39 @@ class WishlistPage {
   renderWishlist(items) {
     if (!this.container) return;
 
-    this.container.innerHTML = items.map(product => `
-      <article class="card" data-id="${product.id}">
-        <div class="card__image-wrapper">
-          <img src="${product.image}" alt="${escapeHtml(product.name)}" class="card__image" loading="lazy">
-        </div>
-        
-        <div class="card__body">
-          <h3 class="card__title">${escapeHtml(product.name)}</h3>
-          
-          <div class="card__price">
-            <span class="card__price-current">${formatPrice(product.price)}</span>
-            ${product.oldPrice ? `<span class="card__price-old">${formatPrice(product.oldPrice)}</span>` : ''}
+    this.container.innerHTML = items.map(product => {
+      const qty = inventory.getQuantity(product.id, 100);
+      const isAvailable = product.inStock && qty > 0;
+      
+      return `
+        <article class="card" data-id="${product.id}">
+          <div class="card__image-wrapper">
+            <img src="${product.image}" alt="${escapeHtml(product.name)}" class="card__image" loading="lazy">
           </div>
           
-          <div class="card__actions">
-            <button class="button button--primary add-to-cart-btn" 
-                    ${!product.inStock ? 'disabled' : ''}
-                    data-id="${product.id}">
-              В корзину
-            </button>
+          <div class="card__body">
+            <h3 class="card__title">${escapeHtml(product.name)}</h3>
             
-            <button class="button button--secondary remove-from-wishlist-btn" data-id="${product.id}">
-              Удалить
-            </button>
+            <div class="card__price">
+              <span class="card__price-current">${formatPrice(product.price)}</span>
+              ${product.oldPrice ? `<span class="card__price-old">${formatPrice(product.oldPrice)}</span>` : ''}
+            </div>
+            
+            <div class="card__actions">
+              <button class="button button--primary add-to-cart-btn" 
+                      ${!isAvailable ? 'disabled' : ''}
+                      data-id="${product.id}">
+                В корзину
+              </button>
+              
+              <button class="button button--secondary remove-from-wishlist-btn" data-id="${product.id}">
+                Удалить
+              </button>
+            </div>
           </div>
-        </div>
-      </article>
-    `).join('');
+        </article>
+      `;
+    }).join('');
   }
 
   handleClick(e) {

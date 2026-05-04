@@ -7,6 +7,7 @@ import { loadProducts } from '../data/products-loader.js';
 import { formatPrice, debounce, escapeHtml } from '../utils/helpers.js';
 import { cart } from './cart.js';
 import { wishlist } from './wishlist.js';
+import { inventory } from './inventory.js';
 import { ui } from './ui.js';
 import { i18n } from './i18n.js';
 
@@ -137,6 +138,8 @@ class CatalogModule {
 
     this.container.innerHTML = productsList.map(product => {
       const inWishlist = wishlist.isInWishlist(product.id);
+      const qty = inventory.getQuantity(product.id, 100);
+      const isAvailable = product.inStock && qty > 0;
 
       return `
         <article class="card" data-id="${product.id}" data-category="${product.category}">
@@ -159,7 +162,7 @@ class CatalogModule {
             
             <div class="card__actions">
               <button class="button button--primary add-to-cart-btn" 
-                      ${!product.inStock ? 'disabled' : ''}
+                      ${!isAvailable ? 'disabled' : ''}
                       data-id="${product.id}">
                 ${i18n.t('catalog.add_to_cart')}
               </button>

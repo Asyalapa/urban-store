@@ -6,15 +6,18 @@
 
 import { auth } from '../modules/auth.js';
 import { cart } from '../modules/cart.js';
+import { inventory } from '../modules/inventory.js';
 import { initCommon } from '../common.js';
 import { ui } from '../modules/ui.js';
 import { formatPrice } from '../utils/helpers.js';
 import { i18n } from '../modules/i18n.js';
+import { loadProducts } from '../data/products-loader.js';
 
 class AdminPage {
   constructor() {
     this.orders = [];
     this.stats = {};
+    this.products = [];
   }
 
   /**
@@ -38,7 +41,7 @@ class AdminPage {
     await initCommon({ skipCounters: true });
 
     // Загрузка данных
-    this.loadData();
+    await this.loadData();
 
     // Рендер
     this.render();
@@ -50,8 +53,9 @@ class AdminPage {
   /**
    * Загрузка данных
    */
-  loadData() {
+  async loadData() {
     this.orders = JSON.parse(localStorage.getItem('urban_orders') || '[]');
+    this.products = await loadProducts();
 
     const totalRevenue = this.orders.reduce((sum, o) => sum + (o.total || 0), 0);
 
@@ -97,6 +101,14 @@ class AdminPage {
           </button>
         </div>
         
+        <!-- Секция инвентаря -->
+        <div class="admin-inventory">
+          <h2>📦 Управление инвентарем</h2>
+          <div class="admin-inventory__table">
+            ${this.renderInventoryTable()}
+          </div>
+        </div>
+        
         <div class="admin-orders">
           <h2>${i18n.t('admin.orders') || 'Заказы'}</h2>
           <div class="admin-orders__table">
@@ -104,6 +116,53 @@ class AdminPage {
           </div>
         </div>
       </div>
+    `;
+  }
+
+  /**
+   * Рендер таблицы инвентаря
+   */
+  renderInventoryTable() {
+    if (!this.products || this.products.length === 0) {
+      return '<div class="admin-inventory__empty">Товары не найдены</div>';
+    }
+
+    return `
+      <table>
+        <thead>
+          <tr>
+            <th>Товар</th>
+            <th>Категория</th>
+            <th>Цена</th>
+            <th>Количество на складе</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${this.products.map(product => {
+            const qty = inventory.getQuantity(product.id, 100);
+            return `
+              <tr data-product-id="${product.id}">
+                <td>${this.escapeHtml(product.name)}</td>
+                <td>${product.category}</td>
+                <td>${formatPrice(product.price)}</td>
+                <td>
+                  <div class="inventory-control">
+                    <button class="inventory-btn decr" data-id="${product.id}">−</button>
+                    <input type="number" class="inventory-input" data-id="${product.id}" value="${qty}" min="0">
+                    <button class="inventory-btn incr" data-id="${product.id}">+</button>
+                  </div>
+                </td>
+                <td>
+                  <button class="button button--small save-inventory" data-id="${product.id}">
+                    Сохранить
+                  </button>
+                </td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
     `;
   }
 
@@ -167,10 +226,41 @@ class AdminPage {
           localStorage.removeItem('urban_orders');
           localStorage.removeItem('urban_cart');
           localStorage.removeItem('urban_wishlist');
+          localStorage.removeItem('urban_inventory');
           window.location.reload();
         }
       });
     }
+
+    // Управление инвентарем - кнопки +/-
+    document.querySelectorAll('.inventory-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const productId = btn.dataset.id;
+        const input = document.querySelector(`.inventory-input[data-id="${productId}"]`);
+        if (!input) return;
+
+        let value = parseInt(input.value) || 0;
+        if (btn.classList.contains('incr')) {
+          value++;
+        } else if (btn.classList.contains('decr')) {
+          value = Math.max(0, value - 1);
+        }
+        input.value = value;
+      });
+    });
+
+    // Управление инвентарем - сохранение
+    document.querySelectorAll('.save-inventory').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const productId = btn.dataset.id;
+        const input = document.querySelector(`.inventory-input[data-id="${productId}"]`);
+        if (!input) return;
+
+        const qty = parseInt(input.value) || 0;
+        inventory.setQuantity(productId, qty);
+        ui.showToast(`Количество товара обновлено (${qty} шт.)`);
+      });
+    });
 
     // Изменение статуса заказа
     const statusSelects = document.querySelectorAll('.order-status-select');

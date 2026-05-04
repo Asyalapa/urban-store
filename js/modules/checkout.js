@@ -7,6 +7,7 @@
 import { cart } from './cart.js';
 import { auth } from './auth.js';
 import { promo } from './promo.js';
+import { inventory } from './inventory.js';
 import { ui } from './ui.js';
 import { i18n } from './i18n.js';
 import { formatPrice } from '../utils/helpers.js';
@@ -212,6 +213,10 @@ class CheckoutModule {
   async handleSubmit(e) {
     e.preventDefault();
 
+    const subtotal = cart.getCartTotal();
+    const deliveryCost = promo.getDeliveryCost(subtotal);
+    const discount = promo.getCurrentDiscount(subtotal);
+
     // Собираем данные формы
     const order = {
       id: 'ORD-' + Date.now(),
@@ -232,12 +237,17 @@ class CheckoutModule {
       payment: document.querySelector('input[name="payment"]:checked')?.value,
       items: cart.getFullCart(),
       subtotal: subtotal,
-      deliveryCost: promo.getDeliveryCost(subtotal),
-      discount: promo.getCurrentDiscount(subtotal),
-      total: subtotal + promo.getDeliveryCost(subtotal) - promo.getCurrentDiscount(subtotal),
+      deliveryCost: deliveryCost,
+      discount: discount,
+      total: subtotal + deliveryCost - discount,
       promoCode: promo.getCurrentPromo()?.code || null,
       status: 'pending'
     };
+
+    // Уменьшаем остатки на складе для каждого товара
+    order.items.forEach(item => {
+      inventory.decrease(item.id, item.quantity);
+    });
 
     // Сохраняем в localStorage (имитация отправки)
     const orders = JSON.parse(localStorage.getItem('urban_orders') || '[]');

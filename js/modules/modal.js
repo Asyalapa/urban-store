@@ -7,6 +7,7 @@
 import { formatPrice, escapeHtml } from '../utils/helpers.js';
 import { cart } from './cart.js';
 import { wishlist } from './wishlist.js';
+import { inventory } from './inventory.js';
 import { ui } from './ui.js';
 import { i18n } from './i18n.js';
 
@@ -155,7 +156,9 @@ class ProductModal {
    */
   updateContent(product) {
     const inWishlist = wishlist.isInWishlist(product.id);
-    const isInStock = product.inStock;
+    // Проверяем наличие из инвентаря или используем inStock
+    const qty = inventory.getQuantity(product.id, 100);
+    const isInStock = product.inStock && qty > 0;
 
     // Изображение
     const modalImage = this.modal.querySelector('.modal__image');
@@ -185,7 +188,7 @@ class ProductModal {
     // Наличие
     const stockStatus = this.modal.querySelector('.modal__stock-status');
     if (stockStatus) {
-      stockStatus.textContent = isInStock ? '✅ В наличии' : '❌ Нет в наличии';
+      stockStatus.textContent = isInStock ? `✅ В наличии (${qty} шт.)` : '❌ Нет в наличии';
       stockStatus.className = `modal__stock-status modal__stock-status--${isInStock ? 'in' : 'out'}`;
     }
 
@@ -193,7 +196,7 @@ class ProductModal {
     const addToCartBtn = this.modal.querySelector('.modal__add-to-cart');
     if (addToCartBtn) {
       addToCartBtn.disabled = !isInStock;
-      addToCartBtn.textContent = isInStock ? i18n.t('catalog.add_to_cart') : i18n.t('catalog.out_of_stock');
+      addToCartBtn.textContent = i18n.t('catalog.add_to_cart');
     }
 
     // Кнопка избранного
@@ -214,7 +217,10 @@ class ProductModal {
    * Обработка добавления в корзину
    */
   handleAddToCart() {
-    if (!this.currentProduct || !this.currentProduct.inStock) return;
+    if (!this.currentProduct) return;
+    
+    const qty = inventory.getQuantity(this.currentProduct.id, 100);
+    if (qty <= 0) return;
 
     cart.addToCart(this.currentProduct.id);
     ui.showToast(i18n.t('notifications.added_to_cart'));
