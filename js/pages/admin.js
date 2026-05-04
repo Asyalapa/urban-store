@@ -165,23 +165,6 @@ class AdminPage {
       </table>
     `;
   }
-                    <button class="inventory-btn decr" data-id="${product.id}">−</button>
-                    <input type="number" class="inventory-input" data-id="${product.id}" value="${qty}" min="0">
-                    <button class="inventory-btn incr" data-id="${product.id}">+</button>
-                  </div>
-                </td>
-                <td>
-                  <button class="button button--small save-inventory" data-id="${product.id}">
-                    Сохранить
-                  </button>
-                </td>
-              </tr>
-            `;
-          }).join('')}
-        </tbody>
-      </table>
-    `;
-  }
 
   /**
    * Рендер таблицы заказов
